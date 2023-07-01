@@ -10,7 +10,7 @@ Article.destroy_all
 
 print 'Seeding...'
 10.times do
-  Article.create(title: Faker::Book.title, content: Faker::Movie.quote)
+  Article.create(title: Faker::Games::FinalFantasyXIV.character, content: Faker::Games::FinalFantasyXIV.job)
 end
 
 print 'Done!'
