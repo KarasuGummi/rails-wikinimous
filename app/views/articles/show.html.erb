@@ -1,23 +1,17 @@
 <div class="container">
-  <h1><%= @article.title %>
-  <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_article_path(@article) %>
-    <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
-        article_path(@article),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h1>
-</div>
+  <article>
+    <h1>
+      <%= @article.title %>
+      <small>
+        <%= link_to edit_article_path(@article) do %><i class="fa-regular fa-pen-to-square"></i><% end %>
+        <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+      </small>
+    </h1>
 
-<div class="container">
-  <%= @article.content %>
-</div>
-
-<br>
-
-<div class="container">
-  <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, nostrum.</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum atque porro error culpa fugiat delectus, distinctio, consectetur recusandae suscipit eius architecto dolore adipisci inventore eveniet, rem debitis? Autem, saepe vel.
-  Corrupti expedita laborum ut nesciunt, voluptatum dolorem similique error ullam, necessitatibus sit unde eveniet! Exercitationem voluptate nulla ad expedita delectus veritatis eos temporibus magnam. Fugiat, quam? Dolore eligendi excepturi sit.</p>
-</div>
-
-<div class="container">
-  <%= link_to 'Back', articles_path %>
+    <hr>
+    <%= @article.content %>
+  </article>
+  <%= link_to 'Back', articles_path, class: "btn btn-primary" %>
 </div>
